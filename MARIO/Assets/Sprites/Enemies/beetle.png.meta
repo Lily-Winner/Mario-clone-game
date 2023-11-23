@@ -147,10 +147,10 @@ TextureImporter:
       name: beetle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 11
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: beetle_1
       rect:
         serializedVersion: 2
-        x: 89
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 100
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: beetle_2
       rect:
         serializedVersion: 2
-        x: 178
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 189
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: beetle_3
       rect:
         serializedVersion: 2
-        x: 267
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 278
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: beetle_4
       rect:
         serializedVersion: 2
-        x: 356
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 367
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: beetle_5
       rect:
         serializedVersion: 2
-        x: 445
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 456
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: beetle_6
       rect:
         serializedVersion: 2
-        x: 534
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 545
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: beetle_7
       rect:
         serializedVersion: 2
-        x: 623
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 634
+        y: 2
+        width: 70
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: beetle_8
       rect:
         serializedVersion: 2
-        x: 712
-        y: 0
-        width: 89.77778
-        height: 64
+        x: 715
+        y: 2
+        width: 86
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,7 +335,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
