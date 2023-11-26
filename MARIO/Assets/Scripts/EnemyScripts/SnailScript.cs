@@ -17,6 +17,7 @@ public class SnailScript : MonoBehaviour
     private bool canMove;
     private bool stunned;
 
+
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -87,7 +88,7 @@ public class SnailScript : MonoBehaviour
         if (rightHit && rightHit.collider.gameObject.tag == MyTags.PLAYER_TAG)
             if(!stunned)
             {
-            //Apply Dammage to plaer
+            //Apply Dammage to player
             }
             else
                 if(tag != MyTags.BEETLE_TAG)
@@ -129,5 +130,29 @@ public class SnailScript : MonoBehaviour
         yield return new WaitForSeconds(timer);
         gameObject.SetActive(false);
     }
-    
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == MyTags.BULLET_TAG)
+        {
+            if (tag == MyTags.BEETLE_TAG)
+            {
+                enemyAnim.Play("Stunned");
+                canMove = false;
+                myBody.velocity = new Vector2(0, 0);
+                StartCoroutine(Dead(0.4f));
+            }
+            if (tag == MyTags.SNAIL_TAG)
+                if(!stunned)
+                {
+                    enemyAnim.Play("Stunned");
+                    stunned = true;
+                    canMove = false;
+                    myBody.velocity = new Vector2(0, 0);
+                }
+                else
+                    gameObject.SetActive(false);
+        }
+
+    }
+
 }

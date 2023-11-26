@@ -105,10 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  left_Collision: {fileID: 0}
-  right_Collision: {fileID: 0}
-  top_Collision: {fileID: 0}
-  down_Collision: {fileID: 0}
+  left_Collision: {fileID: 422526063465648864}
+  right_Collision: {fileID: 7545604768734982571}
+  top_Collision: {fileID: 8136716429292562340}
+  down_Collision: {fileID: 7788238947469235310}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
