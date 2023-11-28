@@ -13,6 +13,7 @@ public class SnailScript : MonoBehaviour
     public Transform left_Collision, right_Collision, top_Collision,down_Collision;
     private Vector3 left_Collision_Pos, right_Collision_Pos;
     public LayerMask playerLayer;
+    
 
     private bool canMove;
     private bool stunned;
@@ -74,6 +75,7 @@ public class SnailScript : MonoBehaviour
             if (!stunned)
             {
                 //Apply Dammage to plaer
+                leftHit.collider.gameObject.GetComponent<PlayerDamage>().DealDamage();
             }
             else
                 if (tag != MyTags.BEETLE_TAG)
@@ -88,7 +90,8 @@ public class SnailScript : MonoBehaviour
         if (rightHit && rightHit.collider.gameObject.tag == MyTags.PLAYER_TAG)
             if(!stunned)
             {
-            //Apply Dammage to player
+                //Apply Dammage to player
+                rightHit.collider.gameObject.GetComponent<PlayerDamage>().DealDamage();
             }
             else
                 if(tag != MyTags.BEETLE_TAG)
@@ -101,7 +104,7 @@ public class SnailScript : MonoBehaviour
 
 
         if (!Physics2D.Raycast(down_Collision.position, Vector2.down, 0.1f))
-        {
+        { 
             ChangeDirection();
         }
     }
