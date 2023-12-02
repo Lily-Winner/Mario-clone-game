@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerDamage : MonoBehaviour
         LifeTxt.text = "x " + lifeScoeCount;
         canDamage = true;
     }
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
 
 
     public void DealDamage()
@@ -29,6 +34,8 @@ public class PlayerDamage : MonoBehaviour
             if (lifeScoeCount == 0)
             {
                 //RESTART THE GAME
+                Time.timeScale = 0f;
+                StartCoroutine(RestartGame());
             }
             canDamage = false;
             StartCoroutine(WeitForDamage());
@@ -39,4 +46,27 @@ public class PlayerDamage : MonoBehaviour
         yield return new WaitForSeconds(2f);
         canDamage = true;
     }
+
+    IEnumerator RestartGame()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        SceneManager.LoadScene("SampleScene");
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Water")
+        {
+
+            Invoke("FellDown", 1f);
+        }
+    }
+
+    private void FellDown()
+    {
+        Time.timeScale = 0f;
+        StartCoroutine(RestartGame());
+    }
+
 }

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform groundCheckPosition;
     public LayerMask groundLayer;
+    private Transform myPos;
 
     private bool isGrounded;
     private bool jumped;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerWalk();
+        //StopMove();
     }
 
     private void Update()
@@ -78,5 +80,7 @@ public class PlayerMovement : MonoBehaviour
                     playerAnim.SetBool("Jump", false);
                 }
     }
+
+    
 
 }

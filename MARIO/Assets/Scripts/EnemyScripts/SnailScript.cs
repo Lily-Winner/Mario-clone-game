@@ -35,6 +35,7 @@ public class SnailScript : MonoBehaviour
 
     void Update()
     {
+        //print(down_Collision.position);
         if (canMove)
             if (moveLeft)
                 myBody.velocity = new Vector2(-moveSpeed, myBody.velocity.y);
@@ -42,6 +43,9 @@ public class SnailScript : MonoBehaviour
                 myBody.velocity = new Vector2(moveSpeed, myBody.velocity.y);
 
         CheckCollision();
+    
+
+        
     }
 
     void CheckCollision()
@@ -50,9 +54,9 @@ public class SnailScript : MonoBehaviour
         RaycastHit2D rightHit = Physics2D.Raycast(right_Collision.position, Vector2.right, 0.1f, playerLayer);
         Collider2D topHit = Physics2D.OverlapCircle(top_Collision.position, 0.2f, playerLayer);
 
-        if (topHit != null && topHit.gameObject.tag == MyTags.PLAYER_TAG && !stunned)
-            //if (topHit.gameObject.tag =="Player")
-                //if (!stunned)
+        if (topHit != null)
+            if (topHit.gameObject.tag =="Player")
+                if (!stunned)
                 {
                     topHit.gameObject.GetComponent<Rigidbody2D>().velocity =
                         new Vector2(topHit.gameObject.GetComponent<Rigidbody2D>().velocity.x, 7f);
@@ -74,7 +78,7 @@ public class SnailScript : MonoBehaviour
         if (leftHit && leftHit.collider.gameObject.tag == MyTags.PLAYER_TAG)
             if (!stunned)
             {
-                //Apply Dammage to plaer
+                //Apply Dammage to player
                 leftHit.collider.gameObject.GetComponent<PlayerDamage>().DealDamage();
             }
             else
@@ -104,7 +108,9 @@ public class SnailScript : MonoBehaviour
 
 
         if (!Physics2D.Raycast(down_Collision.position, Vector2.down, 0.1f))
-        { 
+             
+        {
+            print("change direction called");
             ChangeDirection();
         }
     }
@@ -113,6 +119,9 @@ public class SnailScript : MonoBehaviour
     {
         moveLeft = !moveLeft;
         Vector3 temporaryScale = transform.localScale;
+        // check and take a current position of collisions (that not same with "awake")
+        left_Collision_Pos = left_Collision.position;
+        right_Collision_Pos = right_Collision.position;
 
         if (moveLeft)
         {
@@ -127,7 +136,13 @@ public class SnailScript : MonoBehaviour
             left_Collision.position = right_Collision_Pos;
         }
         transform.localScale = temporaryScale;
+
+        
+        
     }
+
+
+
     IEnumerator Dead(float timer)
     {
         yield return new WaitForSeconds(timer);

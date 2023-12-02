@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour
         BoxCollider2D myCol = GetComponent<BoxCollider2D>();
         myCol.size = new Vector2 (Camera.main.aspect*2f*Camera.main.orthographicSize, 15f);
         cameraBounds = myCol.bounds; //bounds of camera now its a bouns of boxcollider of camera
-        
+        print(myCol.size);
     }
 
     void Start()
@@ -28,6 +28,7 @@ public class CameraFollow : MonoBehaviour
         lastTargetPosition = target.position;
         offsetZ = (transform.position - target.position).z;
         followsPlayer = true;
+        
     }
 
     void FixedUpdate()
@@ -35,14 +36,21 @@ public class CameraFollow : MonoBehaviour
         if (followsPlayer)
         {
             Vector3 aheadTargetPos = target.position + Vector3.forward * offsetZ;
-            if (aheadTargetPos.x >= transform.position.x)
-            {
-                Vector3 newCameraPosition = Vector3.SmoothDamp(transform.position,
+            Vector3 newCameraPosition = Vector3.SmoothDamp(transform.position,
                     aheadTargetPos, ref currentVelocity, cameraSpeed);
-                transform.position = new Vector3(newCameraPosition.x,
-                    transform.position.y, newCameraPosition.z);
-                lastTargetPosition = target.position;
-            }
+            transform.position = new Vector3(newCameraPosition.x,
+                transform.position.y, newCameraPosition.z);
+            lastTargetPosition = target.position;
+
+
+            //if (aheadTargetPos.x >= transform.position.x)
+            //{
+            //    Vector3 newCameraPosition = Vector3.SmoothDamp(transform.position,
+            //        aheadTargetPos, ref currentVelocity, cameraSpeed);
+            //    transform.position = new Vector3(newCameraPosition.x,
+            //        transform.position.y, newCameraPosition.z);
+            //    lastTargetPosition = target.position;
+            //}
             //else
             //{
             //    Vector3 newCameraPosition = Vector3.SmoothDamp(transform.position,
@@ -51,7 +59,14 @@ public class CameraFollow : MonoBehaviour
             //        transform.position.y, newCameraPosition.z);
             //    lastTargetPosition = target.position;
             //}
+            //if (aheadTargetPos.x == 85.8f)
+            //{
+            //    Vector3 temporary = transform.position;
+            //    temporary.x = 85.8f;
+            //    transform.position = temporary;
+            //}
         }
+       
         
     }
 }
