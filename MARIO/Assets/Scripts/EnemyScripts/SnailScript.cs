@@ -110,7 +110,7 @@ public class SnailScript : MonoBehaviour
         if (!Physics2D.Raycast(down_Collision.position, Vector2.down, 0.1f))
              
         {
-            print("change direction called");
+            //print("change direction called");
             ChangeDirection();
         }
     }
